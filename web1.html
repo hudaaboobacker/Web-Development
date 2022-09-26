@@ -1,0 +1,73 @@
+<html>
+<head>
+
+<style>
+.cont{
+	border:2px double black;
+	width:300px;
+	margin:100px;
+	padding:20px;}
+.image{
+	border:2px double black;
+	width:400px;
+	margin:100px;
+	padding:60px;
+	display:flex;}
+.randomImage{
+	border:2px double black;
+	width:400px;
+	margin:100px;
+	padding:60px;}
+</style>
+
+<script>
+function changeBGcol(col){
+	document.body.style.backgroundColor = col;
+	}
+
+let pic=["car1.jpg","car2.jpg","car3.jpg","car4.jpg"];
+let c=0;
+function nextImg(){
+	c=c+1
+	let p=pic[c];
+	document.getElementById("slider").src = p;
+	if(c==3){
+		c=-1;}
+	}
+function preImg(){
+	if(c==0){
+		c=4;}
+	c=c-1
+	let p=pic[c];
+	document.getElementById("slider").src = p;
+	
+	}
+function randomImg(){
+ 	var rnd = Math.floor(Math.random()*pic.length);
+ 	document.getElementById('randImage').src = pic[rnd];
+	}
+</script>
+
+</head>
+<body>
+
+<div class="cont">
+<button onclick="changeBGcol('red')">RED </button>
+<button onclick="changeBGcol('pink')">PINK </button><br>
+<button onclick="changeBGcol('green')"> GREEN</button>
+<button onclick="changeBGcol('yellow')"> YELLOW</button>
+</div>
+
+<div class="image">
+<button onclick="preImg()"> Pre</button>
+<img  id="slider" src="car1.jpg">
+<button onclick="nextImg()"> Next</button>
+</div>
+
+<div class="randomImage">
+<img  id="randImage" src="car1.jpg">
+<button onclick="randomImg()"> Click here</button>
+</div>
+
+</body>
+</html>
